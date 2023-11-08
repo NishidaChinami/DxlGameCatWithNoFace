@@ -1,0 +1,9 @@
+ステージ,チャプター,モブスポーンx座標,モブスポーンy座標,モブサイズ（半径）,画像URL
+1,1,768,592,128,graphics/flower.png
+1,2,7008,384,128,graphics/ghost.png
+2,3,1280,416,128,graphics/curcle.png
+2,4,7584,352,128,graphics/mouse.png
+3,5,2144,160,128,graphics/moya.png
+3,6,4672,320,128,graphics/skeleton.png
+4,7,1056,400,128,graphics/face.png
+4,8,5120,288,128,graphics/eye.png

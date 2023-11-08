@@ -1,0 +1,5 @@
+ステージ,chipファイル,置物ファイル,当たり判定,画像URL
+1,csvfile/Rinbostage1.csv,csvfile/onament1.csv,csvfile/collition1.csv,graphics/stage1.jpg
+2,csvfile/Rinbostage2.csv,csvfile/onament2.csv,csvfile/collition2.csv,graphics/stage1.jpg
+3,csvfile/Rinbostage3.csv,csvfile/onament3.csv,csvfile/collition3.csv,graphics/stage1.jpg
+4,csvfile/Rinbostage4.csv,csvfile/onament4.csv,csvfile/collition4.csv,graphics/stage1.jpg

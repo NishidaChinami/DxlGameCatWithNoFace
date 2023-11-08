@@ -1,0 +1,17 @@
+チャプター,サイド,敵画像
+1,1,graphics/flower.png
+1,0,graphics/neko.png
+2,1,graphics/ghost.png
+2,0,graphics/hananeko.png
+3,1,graphics/curcle.png
+3,0,graphics/hananeko.png
+4,1,graphics/mouse.png
+4,0,graphics/hananeko.png
+5,1,graphics/moya.png
+5,0,graphics/hananeko.png
+6,1,graphics/skeleton.png
+6,0,graphics/nameneko.png
+7,1,graphics/face.png
+7,0,graphics/nameneko.png
+8,1,graphics/eye.png
+8,0,graphics/hitotumeniko.png

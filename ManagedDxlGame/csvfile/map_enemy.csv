@@ -1,0 +1,11 @@
+ステージ,敵のタイプ,敵スポーンx座標,敵スポーンy座標,敵サイズ（半径）,敵画像
+1,2,3488,592,32,graphics/daruma.png
+2,1,3040,352,32,graphics/patrol.png
+2,1,3456,352,32,graphics/patrol.png
+2,1,3904,352,32,graphics/patrol.png
+2,0,4864,-200,32,graphics/tracking.png
+3,2,1280,538,32,graphics/daruma.png
+3,1,2912,288,32,graphics/patrol.png
+4,1,2784,448,32,graphics/patrol.png
+4,0,3744,0,32,graphics/tracking.png
+4,3,7360,100,64,graphics/boss.png

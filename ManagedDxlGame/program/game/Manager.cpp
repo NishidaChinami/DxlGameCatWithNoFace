@@ -19,7 +19,7 @@ void GameManager::Destroy() {
 	
 }
 
-//ここでシーンをデリート
+
 void GameManager::ChangeScene(std::shared_ptr<SceneBase>next_scene, float trans_time) {
 	
 	next_scene_ = next_scene;

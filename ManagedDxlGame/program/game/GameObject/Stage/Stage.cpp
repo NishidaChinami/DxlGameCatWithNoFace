@@ -64,24 +64,7 @@ Stage::Stage(int stage_id) {
 }
 
 Stage::~Stage() {
-	/*auto chip = blocks.begin();
-	while (chip != blocks.end()) {
-		if ((*chip)) {
-			delete(*chip);
-			chip = blocks.erase(chip);
-			continue;
-		}
-		chip++;
-	}
-	auto cl = Collitions.begin();
-	while (cl != Collitions.end()) {
-		if ((*cl)) {
-			delete(*cl);
-			cl = Collitions.erase(cl);
-			continue;
-		}
-		cl++;
-	}*/
+
 	DeleteGraph(stage_gpc_hdl_);
 	for(int i = 0; i < 256; i++){
 		DeleteGraph(chip_hdl[i]);

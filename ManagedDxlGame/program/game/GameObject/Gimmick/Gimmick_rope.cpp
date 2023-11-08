@@ -12,21 +12,22 @@ GimmickRope::GimmickRope(int type,tnl::Vector3& pos, float width, float hight)
 void GimmickRope::Move(float delta_time, const std::shared_ptr<Player>player) {
 	//始点から終点の単位ベクトル
 	tnl::Vector3 cpn = tnl::Vector3::Normalize(e_ - s_);
-	//始点から終点の単位ベクトルに直角なベクトル
+	//始点から終点の単位ベクトルと奥行Z軸との外積を求める
 	tnl::Vector3 cpz_cr = cpn.cross(tnl::Vector3(0, 0, -1));
-	//(0.1)座標のと直角のベクトルの内角から元の角度との類似性を図る
+	//振り子の真上のベクトルとcpz_crの内積を求めと振り子に直角なベクトルを求める
+	//振り子が９０度の時内積は０になる速度が止まり
+	//振り子が０度の時内積は１になる符号が入れ替わる
 	float gr = cpz_cr.dot(tnl::Vector3(0, 1, 0));
-	//ピンクと真上のベクトルの内積で、真下と真上で０横で±の切り替える。
+
 	float pw = 0.98f * 0.5f * gr;
-	//0.5は抵抗力に該当
 	
 	//力を加える
 	rot_vel_ += pw;
-	//力を加えると同時に回転の制御　ものがどこについているかで判断
+	//力を加えると同時に、終点に重りがついているときの回転の制御の計算をする
 	rot_vel_ *= 1.0f - (0.01f * (1.0f - (e_ - s_).length() / max_length_));
 	//角度を計算
 	float angle = tnl::ToRadian(rot_vel_);
-	//スカラー（半径）と上に対してどのくらい角度を回転させたか
+	//終点がどの弧を描くかを計算する
 	e_ = s_ + tnl::Vector3::TransformCoord(
 		cpn * (e_ - s_).length(),
 		tnl::Quaternion::RotationAxis(tnl::Vector3(0, 0, 1), angle));

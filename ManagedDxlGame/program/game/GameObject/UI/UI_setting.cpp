@@ -71,7 +71,7 @@ void UISetting::Input(std::shared_ptr<SaveLoad>save, std::shared_ptr<Player>play
 		if (brightness_progress_ < 255) { 
 			if (tnl::Input::IsKeyDownTrigger(eKeys::KB_D)||
 				(tnl::Input::IsPadDownTrigger(ePad::KEY_RIGHT)))
-				brightness_progress_; }
+				brightness_progress_+= brightness_unit_; }
 		if (brightness_progress_ > 0) { if (tnl::Input::IsKeyDownTrigger(eKeys::KB_A)||
 			(tnl::Input::IsPadDownTrigger(ePad::KEY_LEFT)))
 			brightness_progress_ -= brightness_unit_; }

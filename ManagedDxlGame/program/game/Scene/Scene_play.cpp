@@ -72,7 +72,6 @@ void ScenePlay::Update(float delta_time) {
 	while (it != object.end()) {
 		if (*it) {
 			(*it)->Draw(camera, playermanager->GetPlayer());
-			DrawStringEx(100, 100, -1, "% d", (*it).use_count());
 		}
 		it++;
 	}

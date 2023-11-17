@@ -23,21 +23,25 @@ UIManager::~UIManager()
 void UIManager::Update(float delta_time, const std::list<std::shared_ptr<Mob>>&mob) {
 	//ストーリーキャラクターに当たったときにuiに代入
 	if (!initStory) {
-		for (auto m : mob) {
-			if (m->Getmob()) {
-				NewStory(m->Getchapter());
-				initStory = true;
+		if (!setting) {
+			for (auto m : mob) {
+				if (m->Getmob()) {
+					NewStory(m->Getchapter());
+					initStory = true;
+				}
 			}
 		}
+		
 	}
 	//非表示のフラグがオンになったら表示中のUIを消す
 	auto u =m_ui.begin();
 	while (u != m_ui.end()) {
-		if ((*u)->invisible_) {
-			(*u) = nullptr;
-			u = m_ui.erase(u);
-			initStory = false;
-			continue;
+		if (*u) {
+			if ((*u)->invisible_) {
+				(*u) = nullptr;
+				initStory = false;
+
+			}
 		}
 		u++;
 	}
@@ -48,9 +52,8 @@ void UIManager::Update(float delta_time, const std::list<std::shared_ptr<Mob>>&m
 			while (u != m_ui.end()) {
 				if ((*u)) {
 					(*u)=nullptr;
-					u = m_ui.erase(u);
 					setting = nullptr;
-					continue;
+					story = nullptr;
 				}
 				u++;
 			}
@@ -69,12 +72,13 @@ void UIManager::Draw(std::shared_ptr<SaveLoad>save, std::shared_ptr<Player>playe
 	//uiリストに入ってるものを描画または入力を受け付け
 	auto it = m_ui.begin();
 	while (it != m_ui.end()) {
-		(*it)->Input(save, player, camera,stage);
-		(*it)->Draw();
+		if (*it) {
+			(*it)->Input(save, player, camera, stage);
+			(*it)->Draw();
+		}
 		it++;
 	}
 }
 void UIManager::NewStory(int chapter) {
-	if (story) story = nullptr;
 	if (!story) m_ui.emplace_back(std::make_shared<UIStory>(chapter));
 }

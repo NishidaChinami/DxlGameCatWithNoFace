@@ -45,6 +45,7 @@ UIStory::~UIStory()
 	DeleteGraph(right_chara_gpc_hdl);
 	DeleteGraph(left_chara_gpc_hdl);
 	DeleteSoundMem(select_sound_hdl);
+	
 }
 void UIStory::Draw() {
 	DrawRotaGraph(BACKGROUND_POS.x, BACKGROUND_POS.y, 1, 0, story_gpc_hdl, true);
